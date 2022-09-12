@@ -1,14 +1,26 @@
 import classNames from 'classnames/bind';
 import style from './Trending.module.scss';
+import axios from 'axios';
 import { moviesData } from './MovieData';
 import MovieCard from './MovieCard';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 const cx = classNames.bind(style);
 function Trending() {
     const [noOfElement, setnoOfElement] = useState(4);
+    const [data, setData] = useState([]);
 
     // Cắt data thành 4 data trên 1 hàng
-    const splice = moviesData.slice(0, noOfElement);
+
+    // Get API
+    useEffect(() => {
+        axios
+            .get('http://localhost:5000')
+            .then((res) => setData(res.data))
+            .catch((error) => console.log(error));
+    }, []);
+
+    const splice = data.slice(0, noOfElement);
+
     // mt:margin-top
     // mb : margin-bottom
     // pb : padding-bottom
