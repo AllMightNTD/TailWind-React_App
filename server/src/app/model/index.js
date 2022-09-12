@@ -20,4 +20,4 @@ const Film = new Schema(
 mongoose.plugin(slug);
 // Plugin xóa mềm
 Film.plugin(mongooseDelete, { deletedAt: true, overrideMethods: 'all' });
-module.exports = mongoose.m
+module.exports = mongoose.model('Film', Film);
