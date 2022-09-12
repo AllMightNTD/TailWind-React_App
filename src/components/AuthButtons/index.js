@@ -8,7 +8,8 @@ function AuthButtons() {
     // Còn bình thường là ở giữa
     return (
         <div className={cx('flex justify-center md:justify-end')}>
-            <button className={cx('btn mr-2')}>Login</button>
+            {/* Kích thước ảnh : 250 x 360px */}
+            <button className={cx('btn mr-2 ')}>Login</button>
             <button className={cx('btn')}>Register</button>
         </div>
     );
